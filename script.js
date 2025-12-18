@@ -1,16 +1,16 @@
 const ALL_TASKS = [
-    {id: 1, name: "Finalize IMS566 Documentation", status:"Pending", due: "2025-05-18", category: "Project"},
-    {id: 2, name: "Integrate Chart.js on Dashboard", status: "Pending", due: "2025-05-17", category: "Technical"},
-    {id: 3, name: "Review Notes for next subject", status: "Completed", due: "2025-05-15", category: "Academic"},
-    {id: 4, name: "Test Mobile Responsiveness", status: "Pending", due: "2025-05-17", category: "Technical"},
-    {id: 5, name: "Commit project to Github", status: "Completed", due: "2025-05-10", category: "Project"},
-    {id: 6, name: "Grocery Shopping", status: "Completed", due: "2025-05-11", category: "Personal" },
+    {id: 1, name: "Finish Assignments", status:"Pending", due: "2025-01-18", category: "Project"},
+    {id: 2, name: "Implement Coding", status: "Pending", due: "2025-01-17", category: "Technical"},
+    {id: 3, name: "Review Notes for Exam", status: "Completed", due: "2025-05-15", category: "Academic"},
+    {id: 4, name: "Test Coding", status: "Pending", due: "2025-01-13", category: "Technical"},
+    {id: 5, name: "Upload Coding to Github", status: "Completed", due: "2025-05-10", category: "Project"},
+    {id: 6, name: "Finish Presentation Slides for IMS566", status: "Completed", due: "2025-05-11", category: "Personal" },
 
     ];
 
     //---Dashboard Logic
     function updateDashboardCounts(){
-        const total = ALL_TASKS. length;
+        const total = ALL_TASKS.length;
         const completed = ALL_TASKS.filter(t => t.status === "Completed").length;
         const pending = total - completed;
 
@@ -69,7 +69,7 @@ function renderTasksTable(tasks, tableBodyId) {
     tasks.forEach(task => {
         const row = tableBody.insertRow();
 
-        let statusclass = 'bg-secondary';
+        let statusClass = 'bg-secondary';
         if (task.status === 'Completed') {
             statusClass = 'bg-success';
         } else  if (task.status === 'Pending') {
@@ -79,8 +79,9 @@ function renderTasksTable(tasks, tableBodyId) {
         row.innerHTML = `
             <th scope="row">${task.id}</th>
             <td>${task.name}</td>
-            <td><span class="badge ${task.status}">${task.status}</span></td>
+            <td><span class="badge ${statusClass}">${task.status}</span></td>
             <td>${task.due}</td>
+            <td>${task.category}</td>
         `;
     });
 }
@@ -120,4 +121,13 @@ document.addEventListener('DOMContentLoaded',() => {
     }
 });
 
+function renderingPendingTasks() {
+    const PendingTasks = ALL_TASKS.filter(task=> task.status ==='Pending');
+    renderTasksTable(PendingTasks, 'current-tasks-table-body');
+}
+document.addEventListener('DOMContentLoaded', () => {
+    if(document.getElementById('current-tasks-table-body')) {
+        renderingPendingTasks();
+    }
+});
 
