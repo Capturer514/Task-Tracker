@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+/* Define the Green Color */
+:root {
+    /* Use Dark Forest Green */
+    --primary-green: #4f6f50;
+    --primary-green-hover: #2a5230;
+    /*card wallpaper */
+    --card-background: #ffffff;
+    /*font */
+    --heading-color: #386635;
+    /* text color*/
+    --text-color: #4f6f50;
+    /* soft overlay*/
+    --overlay-color: rgba(229, 235, 229, 0.5);
+}
+
+body {
+    background:
+        /* 1. greenish overlay */
+        /* 2. the image  (Ensure 'greenishforest.jpeg' is the correct filename) */
+        url('greenishforest.jpeg');
+        
+        background-size: cover;
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        background-attachment: fixed;
+
+        font-family: 'Roboto', sans-serif;
+        min-height: 100vh;
+        margin: 0;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 710;
+    color: var(--heading-color) !important;
+    letter-spacing: 2px;
+}
+
+.form-label, .text-muted {
+    color: var(--text-color) !important;
+    font-family: 490;
+}
+
+.card {
+    background-color: var(--card-background) !important;
+     border-radius: 12px;
+     border: 2px solid rgba(53, 99, 62, 0.5);
+     box-shadow: 0 13px 28px rgba(1, 1, 1, 0.20);
+     transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(0,0,0, 0.20);
+}
+
+.btn-primary {
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    font-weight: bold;
+    letter-spacing: 1.0px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-green-hover) !important;
+    border-color: var(--primary-green-hover) !important;
+    transform: scale(1.05);
+}
+
+.form-control:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 0.5rem rgba(60, 100, 70, 0.5);
+}
+
+.alert-danger {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    color: var(--primary-green)
+}
+
+.dashboard-card {
+    background-color: var(--card-background);
+    border-left: 4px solid var(--primary-green);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card h5 {
+    color: var(--primary-green);
+}
+
+.dashboard-card p {
+    color: var(--primary-green);
+}
